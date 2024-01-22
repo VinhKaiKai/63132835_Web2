@@ -1,8 +1,8 @@
-package LamLaiDOPOST;
+package Bai3BaiTapVeNha;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,16 +11,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class DOPOST
+ * Servlet implementation class AboutMe
  */
-@WebServlet("/DOPOST")
-public class DOPOST extends HttpServlet {
+@WebServlet("/AboutMe")
+public class AboutMe extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DOPOST() {
+    public AboutMe() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,13 +30,8 @@ public class DOPOST extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		// định dạng tiếng việt
-		response.setContentType("text/html");
-		response.setCharacterEncoding("utf-8");
-		RequestDispatcher rd = request.getRequestDispatcher("/Views/NhapThongTin.jsp");
-		rd.forward(request, response);
-		
-		
+		RequestDispatcher rd	= request.getRequestDispatcher("/Views/AboutMe.jsp");
+		rd.forward(request,response);
 	}
 
 	/**
@@ -44,15 +39,7 @@ public class DOPOST extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.setContentType("text/html");
-		response.setCharacterEncoding("utf-8");
-		String a = request.getParameter("ten");
-		String b = request.getParameter("lop");
-		request.setAttribute("KEY_TEN", a);
-		request.setAttribute("KEY_LOP", b);
-		RequestDispatcher rd = request.getRequestDispatcher("/Views/NhanThongTin.jsp");
-		rd.forward(request, response);
-		
+		doGet(request, response);
 	}
 
 }

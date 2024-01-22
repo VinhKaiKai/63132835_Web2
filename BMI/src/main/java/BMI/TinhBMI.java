@@ -1,7 +1,6 @@
-package LamLaiDOPOST;
+package BMI;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class DOPOST
+ * Servlet implementation class TinhBMI
  */
-@WebServlet("/DOPOST")
-public class DOPOST extends HttpServlet {
+@WebServlet("/TinhBMI")
+public class TinhBMI extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DOPOST() {
+    public TinhBMI() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,13 +29,8 @@ public class DOPOST extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		// định dạng tiếng việt
-		response.setContentType("text/html");
-		response.setCharacterEncoding("utf-8");
-		RequestDispatcher rd = request.getRequestDispatcher("/Views/NhapThongTin.jsp");
-		rd.forward(request, response);
-		
-		
+		RequestDispatcher r = request.getRequestDispatcher("/Views/Nhap.jsp");
+		r.forward(request,response);
 	}
 
 	/**
@@ -44,15 +38,27 @@ public class DOPOST extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.setContentType("text/html");
-		response.setCharacterEncoding("utf-8");
-		String a = request.getParameter("ten");
-		String b = request.getParameter("lop");
-		request.setAttribute("KEY_TEN", a);
-		request.setAttribute("KEY_LOP", b);
-		RequestDispatcher rd = request.getRequestDispatcher("/Views/NhanThongTin.jsp");
-		rd.forward(request, response);
+		double a = Double.parseDouble(request.getParameter("dulieucc"));
+		double b = Double.parseDouble(request.getParameter("dulieucn"));
+		double ketqua= 0;
+		String thongbao = "";
+		ketqua = (b/(a*a));
+		if(ketqua< 18.5)
+		{
+			thongbao = "bạn đang bị suy dinh dưỡng";
+		}
+		else if(ketqua>18 && ketqua<25)
+		{
+			thongbao = "bạn đang đẹp";
+		}
+		else
+		{
+			thongbao = "bạn đang mập";
+		}
+		request.setAttribute("THONG_BAO", thongbao);
 		
+		RequestDispatcher r = request.getRequestDispatcher("/Views/xuat.jsp");
+		r.forward(request,response);
 	}
 
 }
