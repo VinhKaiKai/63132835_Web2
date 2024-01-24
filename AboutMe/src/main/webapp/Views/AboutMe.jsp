@@ -56,14 +56,15 @@ h2 {
 		<div class="content">
 			<div class="one">
 				<div class="framimage">
-					<img alt="#" src="/Anh/cogiao.jpg">
+					<img alt="" src="../Anh/cogiao.jpg">
 				</div>
 			</div>
 			<div class="two">
-				<h2>Tôi tên Trầm Quang Vinh</h2>
-				<h2>Tôi năm nay 20 tuổi</h2>
-				<h2>Đang học môn Web 2</h2>
-				<h2>Tôi ước muốn học được backend mà khó quá</h2>
+				<h1>介绍自己</h1>
+				<p>Tôi tên <b>Trầm Quang Vinh</b></p>
+				<p>Tôi năm nay <i>20 tuổi</i></p>
+				<p>Đang học môn <u>Web 2</u></p>
+				<p>Tôi ước muốn học được backend mà khó quá</p>
 			</div>
 		</div>
 	</div>
