@@ -10,4 +10,15 @@ public class SinhVienController {
 	public String index() {
 		return "index";
 	}
+	
+	@RequestMapping("/ThongTin")
+	public String ThongTin() {
+		return "ThongTin";
+	}
+	
+	@RequestMapping("/Anh")
+	public String Anh() {
+		return "Anh";
+	}
+	
 }
