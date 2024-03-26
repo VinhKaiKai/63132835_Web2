@@ -14,8 +14,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.learncode.models.SinhVien;
 import com.learncode.services.SinhvienService;
+
+import thiGK.ntu63132835.models.SinhVien;
+import thiGK.ntu63132835.services.SinhVienService;
+
 
 @Controller
 public class SinhVienController {
