@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.learncode.services.SinhvienService;
+
 
 import thiGK.ntu63132835.models.SinhVien;
 import thiGK.ntu63132835.services.SinhVienService;
@@ -40,7 +40,7 @@ public class SinhVienController {
 	
 	
 	@Autowired
-	 private SinhvienService svService;
+	 private SinhVienService svService;
 	 
 	@GetMapping("/danhsachSV")
 	public String listStudent(Model model,  
