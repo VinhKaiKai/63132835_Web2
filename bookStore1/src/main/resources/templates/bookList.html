@@ -32,7 +32,7 @@
 						aria-current="page" href="/">Home</a></li>
 					<li class="nav-item"><a class="nav-link text-white"
 						href="availablebook">Available Books</a></li>
-					<li class="nav-item"><a class="nav-link text-white" href="#">My
+					<li class="nav-item"><a class="nav-link text-white" href="my_books">My
 							Books</a></li>
 					<div>
 						<a class="nav-link text-white" href="bookregister">New Books</a>
@@ -59,26 +59,15 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<th scope="row">1</th>
-					<td>Mark</td>
-					<td>Otto</td>
-					<td>@mdo</td>
-					<td>@mdo</td>
+				<tr th:each="b: ${book}">
+					
+					<td th:text="${b.id}"></td>
+					<td th:text="${b.name}"></td>
+					<td th:text="${b.author}"></td>
+					<td th:text="${b.price}"></td>
+					<td> <a class="btn btn-secondary btn-sm" th:href="@{/mylist/{id}(id=${b.id})}"> thêm vào giỏ </a> </td>
 				</tr>
-				<tr>
-					<th scope="row">2</th>
-					<td>Jacob</td>
-					<td>Thornton</td>
-					<td>@fat</td>
-					<td>@mdo</td>
-				</tr>
-				<tr>
-					<th scope="row">3</th>
-					<td colspan="2">Larry the Bird</td>
-					<td>@twitter</td>
-					<td>@mdo</td>
-				</tr>
+				
 			</tbody>
 		</table>
 
