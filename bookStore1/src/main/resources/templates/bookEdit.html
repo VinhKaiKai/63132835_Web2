@@ -48,34 +48,26 @@
 			</div>
 		</div>
 	</nav>
-	<div class=container>
-		<table class="table table-success table-striped table-hover">
-			<thead>
-				<tr>
-					<th scope="col">ID</th>
-					<th scope="col">Tên Sách</th>
-					<th scope="col">Tác Giả</th>
-					<th scope="col">Giá cả</th>
-					<th scope="col">Chức năng</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="b: ${book}">
-					
-					<td th:text="${b.id}"></td>
-					<td th:text="${b.name}"></td>
-					<td th:text="${b.author}"></td>
-					<td th:text="${b.price}"></td>
-					<td> <a class="btn btn-secondary btn-sm" th:href="@{/mylist/{id}(id=${b.id})}"><i class="fa-solid fa-plus"></i></a>  
-						
-						<a style="color:blue" th:href="@{/editBook/{id}(id=${b.id})}"><i class="fa-solid fa-pen-to-square ms-4"></i></a> 
-						<a style="color:red" th:href="@{/deleteBook/{id}(id=${b.id})}"><i class="fa-solid fa-trash ms-4"></i></a>
-					</td>
-				</tr>
-				
-			</tbody>
-		</table>
 
+	<div class="container my-5" style="border:3px solid black; border-radius:20px; padding:30px;">
+		<form class="col-md-4 offset-md-4" th:action="@{/save}" method="post" th:object="${book}">
+			<h2>Sửa thông tin Sách</h2>
+			<lable>mã sách:</lable>
+			<input readonly name="id" th:value="${book.id}"/>
+			<div class="mb-3">
+				<label for="name" class="form-label">Name</label> 
+				<input type="text" class="form-control" name="name" th:value="${book.name}">
+			</div>
+			<div class="mb-3">
+				<label for="author" class="form-label">Author</label> 
+				<input type="text" class="form-control" name="author" th:value="${book.author}">
+			</div>
+			<div class="mb-3">
+				<label for="price" class="form-label">Price</label> 
+				<input type="text" class="form-control" name="price" th:value="${book.price}"><!-- name nên giống với các biến trong class book -->
+			</div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
 	</div>
 
 	<script

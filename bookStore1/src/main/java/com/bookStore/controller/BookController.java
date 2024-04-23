@@ -73,4 +73,20 @@ public class BookController {
 		myBookService.saveMyBooks(mb);
 		return "redirect:/my_books";
 	}
+	
+	//Từ nút edit của trang Booklist 
+	@RequestMapping("/editBook/{id}")
+	public String editBook(@PathVariable("id") int id, Model model) {
+		Book b = service.getBookById(id);
+		model.addAttribute("book",b);
+		return "bookEdit";
+	}
+	
+	
+	@RequestMapping("/deleteBook/{id}")
+	public String deleteBook(@PathVariable("id") int id)
+	{
+		service.deleteById(id);
+		return "redirect:/availablebook";
+	}
 }

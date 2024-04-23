@@ -30,4 +30,8 @@ public class BookService {
 	{
 		return bRepo.findById(id).get();
 	}
+	
+	public void deleteById(int id) {
+		bRepo.deleteById(id);
+	}
 }
