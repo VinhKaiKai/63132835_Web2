@@ -1,5 +1,7 @@
 package com.bookStore.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,4 +21,17 @@ public class MyBookListService {
 		mybook.save(book);
 		
 	}
+	
+	// lam cái hiện danh sách yêu thích ra
+	public List<MyBookList> getAllMyBooks(){
+		return mybook.findAll();
+	}
+	
+	//xóa sản phẩm yêu thích
+	public void deleteById(int id)
+	{
+		mybook.deleteById(id);
+	}
+	
+	
 }
