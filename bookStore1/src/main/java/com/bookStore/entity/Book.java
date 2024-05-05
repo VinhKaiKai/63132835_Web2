@@ -1,7 +1,5 @@
 package com.bookStore.entity;
 
-import java.util.function.IntToDoubleFunction;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
