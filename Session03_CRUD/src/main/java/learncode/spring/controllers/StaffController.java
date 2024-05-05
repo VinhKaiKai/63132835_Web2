@@ -54,8 +54,11 @@ public class StaffController {
 	public String save(ModelMap model, @ModelAttribute("STAFFDTO") StaffDTO dto) {
 		Optional<Staffs> optionalStaff= staffService.findById(dto.getId());
 		Staffs staff = null;
-		String image ="logo.png";
-		Path path =Paths.get("uploads/");
+		
+		String image ="Logo.png";
+		Path path = Paths.get("uploads/");
+		
+		
 		if(optionalStaff.isPresent()) {
 			//save
 			
@@ -69,7 +72,7 @@ public class StaffController {
 					image = dto.getPhoto().getOriginalFilename().toString();
 				}
 				catch (Exception e) {
-					// TODO: handle exception
+					
 					e.printStackTrace();
 				}
 			}

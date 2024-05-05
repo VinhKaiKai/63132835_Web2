@@ -32,12 +32,12 @@ public class StaffDTO {
 	private String phone;
 	private Float salary;
 	private String notes;
-	private Integer departId;
+	private String departId;
 	public StaffDTO() {
 		super();
 	}
 	public StaffDTO(String id, String name, boolean gender, Date birthday, MultipartFile photo, String email,
-			String phone, Float salary, String notes, Integer departId) {
+			String phone, Float salary, String notes, String departId) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -104,10 +104,10 @@ public class StaffDTO {
 	public void setNotes(String notes) {
 		this.notes = notes;
 	}
-	public Integer getDepartId() {
+	public String getDepartId() {
 		return departId;
 	}
-	public void setDepartId(Integer departId) {
+	public void setDepartId(String departId) {
 		this.departId = departId;
 	}
 	
