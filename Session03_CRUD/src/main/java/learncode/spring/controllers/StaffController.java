@@ -16,7 +16,7 @@ import java.util.Optional;
 
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -110,12 +110,10 @@ public class StaffController {
 			Staffs st = opStaff.get();
 			File file = new File("uploads/" + st.getPhoto());
 			FileInputStream input;
-			
 			try {
 				input = new FileInputStream(file);
 				MultipartFile multiphoto =
-						new MockMultipartFile("file", file.getName(),"text/plain", IOUtils.toByteArray(input));
-				
+						new MockMultipartFile("file", file.getName(),"text/plain",org.apache.commons.io.IOUtils.toByteArray(input));
 				dto = new StaffDTO(st.getId(),st.getName(),st.isGender(),st.getBirthday(),multiphoto,st.getEmail(),st.getPhone(),
 						st.getSalary(),st.getNotes(),st.getDeparts().getId());
 			} catch (FileNotFoundException e) {
@@ -126,19 +124,11 @@ public class StaffController {
 				e.printStackTrace();
 			}
 			
-			
-			
-			
-			
-			
-			
-			
 			model.addAttribute("STAFFDTO", dto);
 		}
 		else {
 			model.addAttribute("STAFFDTO", new StaffDTO());
 		}
-		
 		model.addAttribute("ACTION","/staffs/saveOrUpdate");
 		return "staff";
 	}
