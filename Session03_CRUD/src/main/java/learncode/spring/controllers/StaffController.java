@@ -71,7 +71,21 @@ public class StaffController {
 		
 		if(optionalStaff.isPresent()) {
 			//save
-			
+			if(dto.getPhoto().isEmpty()) {
+				image = optionalStaff.get().getPhoto();
+			}
+			else {
+				try {
+					InputStream inputStream = dto.getPhoto().getInputStream();
+					Files.copy(inputStream, path.resolve(dto.getPhoto().getOriginalFilename()),
+							StandardCopyOption.REPLACE_EXISTING);
+					image = dto.getPhoto().getOriginalFilename().toString();
+				}
+				catch (Exception e) {
+					
+					e.printStackTrace();
+				}
+			}
 		}
 		else {
 			// add
@@ -131,6 +145,13 @@ public class StaffController {
 		}
 		model.addAttribute("ACTION","/staffs/saveOrUpdate");
 		return "staff";
+	}
+	
+	@RequestMapping("/delete/{id}")
+	public String delete (ModelMap model, @PathVariable(name = "id") String id) {
+		staffService.deleteById(id);
+		model.addAttribute("LIST_STAFF", staffService.findAll());
+		return "view-staffs";
 	}
 	
 	
