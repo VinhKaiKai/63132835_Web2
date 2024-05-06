@@ -39,25 +39,14 @@ public class UserController {
 	
 	@PostMapping("/saveOrUpdate")
 	public String saveOrUpdate( ModelMap model , @ModelAttribute("USER") User user ) {
-		//UserDAO dao = new UserDAO(); khi chuyên qua dùng csdl thì ko cần cái này setcung này nữa
-		//dao.save(user); khi chuyên qua dùng csdl thì ko cần cái này setcung này nữa
-		
-		
-		
-		
 		userService.save(user);
 		return "register-user";
 	}
 	
 	@RequestMapping("/list") // trong cái trang thêm người dùng mới của html có cái thẻ a hiển thị danh sách href chuyển hướng tới list trên requesmapping nên nó sẽ trả về trang hiển thị view 
 	public String list(ModelMap model, HttpSession session) {
-		//UserDAO dao = new UserDAO();  khi chuyên qua dùng csdl thì ko cần cái này setcung này nữa
-		//model.addAttribute("USERS",dao.getAll());  khi chuyên qua dùng csdl thì ko cần cái này setcung này nữa
-		
-		
 		if(session.getAttribute("USERNAME") != null)
 		{
-			
 			model.addAttribute("USERS",userService.findAll());
 			return "view-user";
 		}
@@ -65,13 +54,9 @@ public class UserController {
 		
 	}
 	
-	
 	// ham edit
 	@RequestMapping("/edit/{username}") //bấm vào nút edit thì nó sẽ truyền cái username vô 
 	public String edit(ModelMap model, @PathVariable(name = "username") String username) {
-		//UserDAO dao = new UserDAO();
-		//User u = dao.findByUsername(username); //tìm username trong cái list 
-		
 		Optional<User> u= userService.findById(username);
 		
 		if(u.isPresent()) {
@@ -84,22 +69,15 @@ public class UserController {
 		return "register-user";
 	}
 	
-	
 	// ham xoa
 	@RequestMapping("/delete/{username}") //bấm vào nút edit thì nó sẽ truyền cái username vô 
 	public String delete(ModelMap model, @PathVariable(name = "username") String username) {
-		//UserDAO dao = new UserDAO();
-		//dao.delete(username); 
-		
 		userService.deleteById(username);
 		model.addAttribute("USERS",userService.findAll());
 		return "view-user";
 	}
 	
-	
-	
 	// login
-	
 	// trên cái form  khi bấm submit thì chuyển qua view-user 
 	@RequestMapping("/login")
 	public String showLogin() {
@@ -107,19 +85,7 @@ public class UserController {
 	}
 	
 	@PostMapping("/checklogin") // trùng với cái action của form 
-	public String checkLogin(ModelMap model, @RequestParam("username") String username, @RequestParam("password") String password, HttpSession session) {
-		
-		//if(_userBean.getUsername().equals(username) && _userBean.getPassword().equals(password))
-		//{
-		//	System.out.print("Đăng nhập thanh công");
-		//	return "index";
-		//}
-		//else
-		//{
-		//	System.out.print("Đăng nhập thất bại");
-		//}
-		
-		
+	public String checkLogin(ModelMap model, @RequestParam("username") String username, @RequestParam("password") String password, HttpSession session) {	
 		if(userService.checkLogin(username,password))
 		{
 			System.out.println("Đăng nhập thanh công");
@@ -133,7 +99,6 @@ public class UserController {
 		}
 		return "login";
 	}
-	
 	
 	//hàm logout
 	@GetMapping("/logout")
