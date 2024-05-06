@@ -34,4 +34,6 @@ public interface StaffService {
 
 	List<Departs> findAllDeparts();
 
+	
+
 }

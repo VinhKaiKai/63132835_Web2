@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import learncode.spring.models.Departs;
 
 @Repository
-public interface DepartRepository extends CrudRepository<Departs,String>{
+public interface DepartRepository extends CrudRepository<Departs , String>{
 
 }

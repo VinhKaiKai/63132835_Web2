@@ -31,4 +31,6 @@ public interface DepartService {
 
 	Departs save(Departs entity);
 
+	
+
 }

@@ -1,6 +1,9 @@
 package learncode.spring.models;
 
-import java.sql.Date;
+
+// 
+import java.util.Date; //cai nay ne
+//import java.sql.Date;
 import java.util.Set;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -28,7 +31,7 @@ public class Staffs {
 	
 	private boolean gender;
 	
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
 	private Date birthday;
 	

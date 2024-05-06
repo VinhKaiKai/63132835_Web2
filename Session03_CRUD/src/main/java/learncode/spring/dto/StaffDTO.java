@@ -1,6 +1,7 @@
 package learncode.spring.dto;
 
-import java.sql.Date;
+//import java.sql.Date;
+import java.util.Date;
 import java.util.Set;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -24,7 +25,7 @@ public class StaffDTO {
 	private String id;
 	private String name;
 	private boolean gender;
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
 	private Date birthday;
 	private MultipartFile photo;

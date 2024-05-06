@@ -77,4 +77,5 @@ public class DepartServiceImpl implements DepartService{
 		departRepository.deleteAll();
 	}
 	
+	
 }
