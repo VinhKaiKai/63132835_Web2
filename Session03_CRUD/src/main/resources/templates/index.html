@@ -1,10 +1,115 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/base.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/menu.css}">
+<link rel="stylesheet" th:href="@{https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap}">
+
 </head>
 <body>
-	<h1>Index</h1>
+	 <section class="dau" id="dau">
+        <header id="navbar">
+            <a href="#" class="logo">HSK-HSKK</a>
+            <ul>
+                <li><a href="#menu" class="active">HOME</a></li>
+                <li><a href="#">Nhân viên</a></li>
+                <li><a href="#">Học viên</a></li>
+                <li><a href="#">contact</a></li>
+            </ul>
+            <span class="menuicon" onclick="togglemenu();"></span>
+        </header>
+    </section>
+	<section class="menu" id="menu">
+            <div class="bannervideo" id="slidershow">
+                <video th:src="@{/video/video-3.mp4}" muted autoplay loop class="active"></video>
+                <video th:src="@{/video/video-2.mp4}" muted autoplay loop></video>
+                <video th:src="@{/video/video-1.mp4}" muted autoplay loop></video>
+            </div>
+            <div class="container">
+                <div class="content">
+                    <div class="bannertext" id="slidershowtext">
+                        <div class="active">
+                            <h2>开心来开心去
+                            </h2>
+                            <p>Chào mừng bạn đến với Trung tâm Học Tiếng Trung của chúng tôi! Tại đây, chúng tôi cam kết mang đến cho học viên trải nghiệm học tiếng Trung tốt nhất cùng với sự hiểu biết sâu sắc về văn hóa Trung Quốc.</p>
+                        </div>
+                        <div>
+                            <h2>Bear one</h2>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet
+                                consectetur adipisicing elit. Quis, deleniti eum! Rerum tenetur harum ducimus voluptate.
+                                Adipisci alias, aut ad ea nihil eum dignissimos rem inventore accusamus. Aut, dicta
+                                nostrum. Officiis aliquid a neque deleniti facilis sapiente quae, quia voluptate?</p>
+                        </div>
+                        <div>
+                            <h2>Bear Two</h2>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet
+                                consectetur adipisicing elit. Quis, deleniti eum! Rerum tenetur harum ducimus voluptate.
+                                Adipisci alias, aut ad ea nihil eum dignissimos rem inventore accusamus. Aut, dicta
+                                nostrum. Officiis aliquid a neque deleniti facilis sapiente quae, quia voluptate?</p>
+                        </div>
+                    </div>
+                </div>
+                <ul class="sci">
+                    <li><a href="https://www.facebook.com/quangvinh.tram.5"><img th:src="@{/image/facebook.png}" alt=""></a></li>
+                    <li><a href="https://github.com/VinhKaiKai/63132835_Web2"><img th:src="@{/image/github.svg}" alt=""></a></li>
+                    <li><a href=""><img th:src="@{/image/instagram.png}" alt=""></a></li>
+                </ul>
+
+                <ul class="controls">
+                    <li onclick="preslide();nextslidetext();"><img th:src="@{/image/left.png}"  alt=""></li>
+                    <li onclick="nextslide();preslidetext();"><img th:src="@{/image/right.png}"  alt=""></li>
+                </ul>
+        
+            </div>
+            
+       <script>
+       <!-- Phần xử lí nút bấm -->
+
+            //lấy cái bọc chứa các danh sách email để lấy ra 1 mảng danh sách-->
+            const slidershow = document.getElementById('slidershow');
+            //lấy ra từng cái tag của của từng video
+            const slides = slidershow.getElementsByTagName('video');
+            //hàm thay đổi đối tượng được chọn trong danh sách-
+            var i = 0;
+            function nextslide(){ // hàm next
+                slides[i].classList.remove('active');
+                i = ( i + 1 ) % slides.length;
+                slides[i].classList.add('active');
+            }
+            function preslide(){ //hàm lùi
+                slides[i].classList.remove('active');
+                i = (i - 1 + slides.length) % slides.length;
+                slides[i].classList.add('active');
+            }
+
+            const slidershowtext = document.getElementById('slidershowtext');
+            //lấy ra từng cái tag của của từng video
+            const slidestext = slidershowtext.getElementsByTagName('div');
+            //<!--hàm thay đổi đối tượng được chọn trong danh sách-->
+            var index = 0;
+            function nextslidetext(){ // hàm next
+                slidestext[index].classList.remove('active');
+                index = ( index + 1 ) % slidestext.length;
+                slidestext[index].classList.add('active');
+            }
+            function preslidetext(){ //hàm lùi
+                slidestext[index].classList.remove('active');
+                index = (index - 1 + slidestext.length) % slidestext.length;
+                slidestext[index].classList.add('active');
+            }
+
+            function togglemenu(){
+                const menuicon = document.querySelector('.menuicon');
+                const navbar = document.getElementById('navbar');
+                menuicon.classList.toggle('active');
+                navbar.classList.toggle('active');
+            }
+
+        </script>     
+        </section>
+       
+      
 </body>
 </html>

@@ -1,0 +1,15 @@
+@charset "ISO-8859-1";
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', san-serif;
+  scroll-behavior: smooth; /* nó sẽ chuyển động khi click vào nút nó sẽ duy chuyển tới thẻ div mượt hơn.*/
+}
+
+#body,
+#main,
+#header,
+#footer {
+  width: 100%;
+}

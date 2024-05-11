@@ -28,7 +28,9 @@ public class UserController {
 	@Autowired
 	User _userBean;
 	
-	@GetMapping("/")
+	
+	//hàm này để dẫn tới trang "ĐĂNG KÝ"
+	@GetMapping("/login")
 	public String addOrEdit(ModelMap model) {
 		User u = new User();
 		model.addAttribute("USER", u);
@@ -43,6 +45,8 @@ public class UserController {
 		return "register-user";
 	}
 	
+	
+	// trang "ĐĂNG NHẬP"
 	@RequestMapping("/list") // trong cái trang thêm người dùng mới của html có cái thẻ a hiển thị danh sách href chuyển hướng tới list trên requesmapping nên nó sẽ trả về trang hiển thị view 
 	public String list(ModelMap model, HttpSession session) {
 		if(session.getAttribute("USERNAME") != null)
@@ -54,7 +58,7 @@ public class UserController {
 		
 	}
 	
-	// ham edit
+	// Hàm CHỈNH SỬA 
 	@RequestMapping("/edit/{username}") //bấm vào nút edit thì nó sẽ truyền cái username vô 
 	public String edit(ModelMap model, @PathVariable(name = "username") String username) {
 		Optional<User> u= userService.findById(username);
@@ -69,7 +73,7 @@ public class UserController {
 		return "register-user";
 	}
 	
-	// ham xoa
+	// HÀM XÓA
 	@RequestMapping("/delete/{username}") //bấm vào nút edit thì nó sẽ truyền cái username vô 
 	public String delete(ModelMap model, @PathVariable(name = "username") String username) {
 		userService.deleteById(username);
@@ -100,7 +104,7 @@ public class UserController {
 		return "login";
 	}
 	
-	//hàm logout
+	//hàm ĐĂNG XUẤT
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
 		session.removeAttribute("USERNAME");
