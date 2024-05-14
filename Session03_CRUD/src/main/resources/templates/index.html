@@ -13,18 +13,21 @@
         <header id="navbar">
             <a href="#" class="logo">HSK-HSKK</a>
             <ul>
-                <li><a href="#menu" class="active">HOME</a></li>
-                <li><a href="#">Nhân viên</a></li>
-                <li><a href="#">Học viên</a></li>
-                <li><a href="#">contact</a></li>
+                <li><a  href="#menu" class="active">HOME</a></li>
+                <li><a style="font-weight:600" href="/list">Quản lý</a></li>
+                <li><a style="font-weight:600" href="/staffs/list">Nhân viên</a></li>
+                <li><a style="font-weight:600" href="#">Học viên</a></li>
+                <li><a style="font-weight:600" href="#">contact</a></li>
+                <p style="padding-top:3px;"><label style="color:white; font-weight:700 " th:text="'Xin chào : '+${session.USERNAME}"></label><a href="/logout" style="color:red; font-weight: 600; text-decoration: none;">Đăng Xuất</a>
+</p>
             </ul>
             <span class="menuicon" onclick="togglemenu();"></span>
         </header>
     </section>
 	<section class="menu" id="menu">
             <div class="bannervideo" id="slidershow">
-                <video th:src="@{/video/video-3.mp4}" muted autoplay loop class="active"></video>
-                <video th:src="@{/video/video-2.mp4}" muted autoplay loop></video>
+                <video th:src="@{/video/video-2.mp4}" muted autoplay loop class="active"></video>
+                <video th:src="@{/video/video-3.mp4}" muted autoplay loop></video>
                 <video th:src="@{/video/video-1.mp4}" muted autoplay loop></video>
             </div>
             <div class="container">
@@ -33,21 +36,15 @@
                         <div class="active">
                             <h2>开心来开心去
                             </h2>
-                            <p>Chào mừng bạn đến với Trung tâm Học Tiếng Trung của chúng tôi! Tại đây, chúng tôi cam kết mang đến cho học viên trải nghiệm học tiếng Trung tốt nhất cùng với sự hiểu biết sâu sắc về văn hóa Trung Quốc.</p>
+                            <p>Chào mừng bạn đến với Trung tâm Học Tiếng Trung của chúng tôi! Tại đây, chúng tôi cam kết đầu ra của từng học viên. </p>
                         </div>
                         <div>
-                            <h2>Bear one</h2>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet
-                                consectetur adipisicing elit. Quis, deleniti eum! Rerum tenetur harum ducimus voluptate.
-                                Adipisci alias, aut ad ea nihil eum dignissimos rem inventore accusamus. Aut, dicta
-                                nostrum. Officiis aliquid a neque deleniti facilis sapiente quae, quia voluptate?</p>
+                            <h2>Văn hóa</h2>
+                            <p>Không những học chuyên sâu về các kỹ năng, trung tâm còn cung cấp các kiến thức về văn hóa Trung Quốc. Tìm tòi kích thích tính tò mò của các em về những đặc sắc mà Trung Quốc đại lục mang đến. hứa hẹn có nhiều trải nghiệm tuyệt vời hơn mong đợi. nhằm thúc đẩy tính tò mò học hỏi của thế hệ trẻ, kết nối với nhiều văn hóa trên thế giới.</p>
                         </div>
                         <div>
-                            <h2>Bear Two</h2>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet
-                                consectetur adipisicing elit. Quis, deleniti eum! Rerum tenetur harum ducimus voluptate.
-                                Adipisci alias, aut ad ea nihil eum dignissimos rem inventore accusamus. Aut, dicta
-                                nostrum. Officiis aliquid a neque deleniti facilis sapiente quae, quia voluptate?</p>
+                            <h2>Văn hóa</h2>
+                            <p>Không những học chuyên sâu về các kỹ năng, trung tâm còn cung cấp các kiến thức về văn hóa Trung Quốc. Tìm tòi kích thích tính tò mò của các em về những đặc sắc mà Trung Quốc đại lục mang đến. hứa hẹn có nhiều trải nghiệm tuyệt vời hơn mong đợi. nhằm thúc đẩy tính tò mò học hỏi của thế hệ trẻ, kết nối với nhiều văn hóa trên thế giới.</p>
                         </div>
                     </div>
                 </div>
@@ -109,6 +106,192 @@
 
         </script>     
         </section>
+        
+          <section class="bed">
+        <div class="container "
+            style="width: 100%; margin-left: auto; margin-right: auto; padding-left: 24px; padding-right: 24px;">
+            <div class="my-bed" style="margin-bottom: 0;">
+                <!--cái header của module cái giường-->
+                <div class="header-bed" style="display: flex; justify-content: space-between;">
+                    <div class="vinh" style="margin-bottom: 12px; padding-right: 18px;">
+                        <h3>
+                            Meet the Quest product line headline
+                        </h3>
+                    </div>
+                </div>
+                <div class="body-bed">
+                    <div class="two-above reveal" style="display: flex; gap: 8px;">
+                        <div class="content-1" style="width: 50%;">
+                            <div class="anh" style="width: 100%; height: 233px; height: 330px; height: 422px;">
+                                <img th:src="@{/image/bed-jpg.jpg}" alt="vinh"
+                                    class="lazy">
+                            </div>
+                            <div class="boc-1 ">
+                                <div >
+                                    <h5>
+                                        Quest 1.0
+                                    </h5>
+                                </div>
+                                <div class="" style="font-size: 16px; margin-top: 8px; font-weight: bold; color: #718096;">
+                                    <p>
+                                        Starting at $649
+                                    </p>
+                                </div>
+                                <div  style="margin-top: 5px; margin-bottom: 12px; color: #718096;">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum facilisis
+                                        lorem
+                                        orci fringilla nisl eget ut mi velit
+                                    </p>
+                                </div>
+
+                                <div class="detail-of-content-1"
+                                    style="display: flex; margin-bottom: 26px; font-weight: bold;">
+                                    <a href="#"
+                                        style="display: flex; gap: 5px; color: #3B82F6; text-decoration: none; align-items: center; font-size: 14px; font-weight: bold;">
+                                        <p>
+                                            Quest 1.0 product details
+                                        </p>
+                                        <img style="width: 20px; height: 14px;" th:src="@{/image/muiten-jpg.jpg}"
+                                            alt=".">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-2" style="width: 50%;">
+                            <div class="anh w-full" style="width: 100%; height: 233px; height: 330px; height: 422px;">
+                                <img th:src="@{/image/bed-jpg.jpg}" alt="vinh"
+                                    class="lazy">
+                            </div>
+                            <div class="boc-2" style="margin-left: 12px; margin-right: 12px;">
+                                <div class="" style="padding-top: 8px; font-weight: bold;">
+                                    <h5>
+                                        Quest 2.0
+                                    </h5>
+                                </div>
+                                <div 
+                                    style="font-size: 16px; margin-top: 8px; font-weight: bold; color: #718096;">
+                                    <p>
+                                        Starting at $649
+                                    </p>
+                                </div>
+                                <div class="mt-8 mb-6" style="margin-top: 8px; margin-bottom: 6px;">
+                                    <p style="color: #718096;">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum facilisis
+                                        lorem
+                                        orci fringilla nisl eget ut mi velit
+                                    </p>
+                                </div>
+                                <div class="detail-of-content-1"
+                                    style="display: flex; margin-bottom: 26px; font-weight: bold;">
+                                    <a href="#"
+                                        style="display: flex; gap: 5px; color: #3B82F6; text-decoration: none; align-items: center; font-size: 14px; font-weight: bold;">
+                                        <p style="color: #3B82F6;">Quest 2.0 product details</p>
+                                        <img style="width: 20px; height: 14px;" class="lazy"
+                                            th:src="@{/image/muiten-jpg.jpg}" alt=".">
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--2 Cái nội dung giường dưới-->
+                    <div class="two-bottom reveal" style="display: flex; gap: 8px;">
+                        <div class="content-3" style="width: 50%;">
+                            <div class="anh" style="width: 100%; height: 233px; height: 330px; height: 422px;">
+                                <img th:src="@{/image/bed-jpg.jpg}" alt="vinh"
+                                    class="lazy">
+                            </div>
+                            <div class="boc-3 " style="margin-left: 12px; margin-right: 12px;">
+                                <div class="" style="padding-top: 8px; font-weight: bold;">
+                                    <h5>
+                                        Quest 2.5
+                                    </h5>
+                                </div>
+                                <div 
+                                    style="font-size: 16px; margin-top: 8px; font-weight: bold; color: #718096;">
+                                    <p>
+                                        Starting at $649
+                                    </p>
+                                </div>
+                                <div style="margin-top: 7px; margin-bottom: 5px;">
+                                    <p style="color: #718096;">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum facilisis
+                                        lorem
+                                        orci fringilla nisl eget ut mi velit
+                                    </p>
+                                </div>
+                                <div class="detail-of-content-1"
+                                    style="display: flex; margin-bottom: 23px; font-weight: bold;">
+                                    <a href="#"
+                                        style="display: flex; gap: 5px; color: #3B82F6; text-decoration: none; align-items: center; font-size: 14px; font-weight: bold;">
+                                        <p style="color: #3B82F6;">Quest 2.5 product details</p>
+                                        <img style="width: 20px; height: 14px;" class="lazy"
+                                            th:src="@{/image/muiten-jpg.jpg}" alt=".">
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="content-4" style="width: 50%;">
+                            <div class="anh" style="width: 100%; height: 233px; height: 330px; height: 422px;">
+                                <img th:src="@{/image/bed-jpg.jpg}" alt="vinh"
+                                    class="lazy">
+                            </div>
+                            <div  style="margin-left: 12px; margin-right: 12px;">
+                                <div  style="padding-top: 8px; font-weight: bold;">
+                                    <h5>
+                                        Quest 4.0
+                                    </h5>
+                                </div>
+                                <div
+                                    style="font-size: 16px; margin-top: 8px; font-weight: bold; color: #718096;">
+                                    <p>
+                                        Starting at $649
+                                    </p>
+                                </div>
+                                <div  style="margin-top: 8px; margin-bottom: 12px;">
+                                    <p style="color: #718096;">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum facilisis
+                                        lorem
+                                        orci fringilla nisl eget ut mi velit
+                                    </p>
+                                </div>
+                                <div class="detail-of-content-1"
+                                    style="display: flex; margin-bottom: 40px; font-weight: bold;">
+                                    <a href="#"
+                                        style="display: flex; gap: 5px; color: #3B82F6; text-decoration: none; align-items: center; font-size: 14px; font-weight: bold;">
+                                        <p style="color: #3B82F6;">Quest 4.0 product details</p>
+                                        <img style="width: 20px; height: 14px;" class="lazy"
+                                            th:src="@{/image/muiten-jpg.jpg}" alt=".">
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+        window.addEventListener('scroll', reveal);
+        function reveal() {
+            var reveals = document.querySelectorAll('.reveal');
+            for (var i = 0; i < reveals.length; i++) {
+                var windowheight = window.innerHeight;
+                var revealtop = reveals[i].getBoundingClientRect().top;
+                var revealpoint = 150;
+
+                if (revealtop < windowheight - revealpoint) {
+                    reveals[i].classList.add('active');
+                }
+                else {
+                    reveals[i].classList.remove('active');
+                }
+            }
+        }
+    </script>
+    </section>
        
       
 </body>

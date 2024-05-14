@@ -29,8 +29,19 @@ public class UserController {
 	User _userBean;
 	
 	
+	//mới vô cho nó hiện trang đăng nhập. nếu không có tài khoản thì đăng ký.
+	// đăng nhập oke xong nó vô trang index
+	
+	
+	@GetMapping("/")
+	public String dautien() {
+		return "login";
+	}
+	
+	
+	
 	//hàm này để dẫn tới trang "ĐĂNG KÝ"
-	@GetMapping("/login")
+	@GetMapping("/register")
 	public String addOrEdit(ModelMap model) {
 		User u = new User();
 		model.addAttribute("USER", u);
@@ -95,7 +106,7 @@ public class UserController {
 			System.out.println("Đăng nhập thanh công");
 			session.setAttribute("USERNAME", username);
 			model.addAttribute("USERS",userService.findAll());
-			return "view-user";
+			return "index";
 		}
 		else {
 			System.out.println("Đăng nhập thất bại");

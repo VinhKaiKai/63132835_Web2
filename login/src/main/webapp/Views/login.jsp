@@ -41,7 +41,7 @@ section::before
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(#000,#0f0,#000);
+  background: linear-gradient(#000,#07c,#000); /* Thay đổi màu sắc từ #0f0 thành #07c */
   animation: animate 5s linear infinite;
 }
 @keyframes animate 
@@ -67,10 +67,8 @@ section span
 }
 section span:hover 
 {
-  background: #0f0;
-  transition: 0s;
+  background: #07c; /* Thay đổi màu sắc từ #0f0 thành #07c */
 }
-
 section .signin
 {
   position: absolute;
