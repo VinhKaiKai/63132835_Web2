@@ -133,7 +133,7 @@ public class UserController {
 	public String viewHomePage1(Model model, @Param("keyword") String keyword) {
 		List<User> listUser = userService.listAll(keyword);
 		
-		model.addAttribute("listStudent", listUser);
+		model.addAttribute("USERS", listUser);
 		model.addAttribute("keyword", keyword);
 		return "view-user";
 	}
