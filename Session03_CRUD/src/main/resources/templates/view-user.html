@@ -5,15 +5,25 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     </head>
     <body>
         
         <div class="container">
-            <h2>DANH SACH NGUOI DUNG</h2>
+            <h2>Danh sách người quản lý</h2>
             <p><a class="btn btn-primary" href="/">ADD USER</a></p>
             <p><label th:text="'Xin chào: '+${session.USERNAME}"></label><a href="/logout">Đăng Xuất</a></p>
+            
+            
+            
+            
             <table class="table table-bordered">
                 <thead>
                     <tr>

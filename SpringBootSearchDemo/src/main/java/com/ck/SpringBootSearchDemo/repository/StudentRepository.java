@@ -9,6 +9,7 @@ import com.ck.SpringBootSearchDemo.model.Student;
 
 public interface StudentRepository extends JpaRepository<Student, Long> {
 	
+	// chức năng tìm kiếm
 	@Query("SELECT student FROM Student student WHERE CONCAT(student.sid, ' ', student.sname, ' ', student.scity) LIKE %?1%")
 	public List<Student> search(String keyword);
 	public Student findBySname(String sname);

@@ -91,4 +91,16 @@ public class UserServiceImpl implements UserService{
 		return false;
 	}
 
+	
+	
+	
+	//Tìm kiếm 
+	@Override
+	public List<User> listAll(String keyword) {
+		if (keyword  != null) {
+			return userRepository.search(keyword);
+		}else
+		
+		return (List<User>) userRepository.findAll();
+	}
 }

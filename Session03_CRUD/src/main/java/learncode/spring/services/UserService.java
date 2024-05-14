@@ -5,11 +5,15 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+
+
 import learncode.spring.models.User;
 import learncode.spring.repositories.UserRepository;
 
 public interface UserService {
 
+	
+	
 	void deleteAll();
 
 	void deleteAll(List<User> entities);
@@ -35,6 +39,11 @@ public interface UserService {
 	User save(User entity);
 	
 	boolean checkLogin(String username, String password);
+
+	
+	//Tìm kiếm
+	public List<User> listAll(String keyword);
+	
 
 	
 

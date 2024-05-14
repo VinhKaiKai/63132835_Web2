@@ -1,11 +1,14 @@
 package learncode.spring.controllers;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.hibernate.engine.jdbc.connections.spi.AbstractDataSourceBasedMultiTenantConnectionProviderImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.objenesis.instantiator.basic.NewInstanceInstantiator;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -13,6 +16,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+
 
 import jakarta.servlet.http.HttpSession;
 import learncode.spring.models.User;
@@ -120,6 +125,17 @@ public class UserController {
 	public String logout(HttpSession session) {
 		session.removeAttribute("USERNAME");
 		return "redirect:/login";
+	}
+	
+	
+	//hàm tìm kiếm---------------------------------------------- chưa xong 
+	@RequestMapping("/list2")
+	public String viewHomePage1(Model model, @Param("keyword") String keyword) {
+		List<User> listUser = userService.listAll(keyword);
+		
+		model.addAttribute("listStudent", listUser);
+		model.addAttribute("keyword", keyword);
+		return "view-user";
 	}
 	
 }
