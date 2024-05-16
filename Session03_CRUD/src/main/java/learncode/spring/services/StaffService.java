@@ -3,8 +3,10 @@ package learncode.spring.services;
 import java.util.List;
 import java.util.Optional;
 
+import learncode.spring.models.Courses;
 import learncode.spring.models.Departs;
 import learncode.spring.models.Staffs;
+import learncode.spring.models.Students;
 
 public interface StaffService {
 
@@ -34,6 +36,9 @@ public interface StaffService {
 
 	List<Departs> findAllDeparts();
 
-	
+	List<Staffs> findAllStaffs();
+
+	//Tìm kiếm
+	public List<Staffs> listAll(String keyword);
 
 }

@@ -16,8 +16,10 @@ import java.util.Optional;
 
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -29,6 +31,7 @@ import org.springframework.web.multipart.MultipartFile;
 import learncode.spring.dto.StaffDTO;
 import learncode.spring.models.Departs;
 import learncode.spring.models.Staffs;
+import learncode.spring.models.Students;
 import learncode.spring.services.DepartService;
 import learncode.spring.services.StaffService;
 
@@ -41,7 +44,7 @@ public class StaffController {
 	@Autowired
 	DepartService departService;
 	
-	
+	// hiện list 
 	@RequestMapping("/list")
 	public String listStaff(ModelMap model)
 	{
@@ -50,7 +53,8 @@ public class StaffController {
 	}
 	
 	
-	@GetMapping("/")
+	//hàm thêm add
+	@GetMapping("/vinh")
 	public String addOrEdit(ModelMap model)
 	{
 		StaffDTO staff = new StaffDTO();
@@ -147,6 +151,8 @@ public class StaffController {
 		return "staff";
 	}
 	
+	
+	// hàm xóa 
 	@RequestMapping("/delete/{id}")
 	public String delete (ModelMap model, @PathVariable(name = "id") String id) {
 		staffService.deleteById(id);
@@ -155,9 +161,23 @@ public class StaffController {
 	}
 	
 	
+	
+	
 	@ModelAttribute(name = "DEPARTS")
 	public List<Departs> getAllDeparts(){
 		return staffService.findAllDeparts();
 	}
+	
+	
+	
+	//hàm tìm kiếm---------------------------------------------- chưa xong 
+			@RequestMapping("/list2")
+			public String viewHomePage1(Model model, @Param("keyword") String keyword) {
+				List<Staffs> listStaff = staffService.listAll(keyword);
+				
+				model.addAttribute("LIST_STAFF", listStaff);
+				model.addAttribute("keyword", keyword);
+				return "view-staffs";
+			}
 	
 }

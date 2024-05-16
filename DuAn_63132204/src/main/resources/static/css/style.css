@@ -1,0 +1,195 @@
+body {
+	margin:0;
+	padding:0;
+	background: url("../images/bg-body.gif");
+	background-repeat:repeat-x;
+}
+#header {
+	width:1150px;
+	height:72px;
+	position:relative;
+	margin:0 auto;
+}
+#header a#logo {
+	position:relative;
+	z-index:100;
+}
+#header a#logo img {
+	border:0;
+}
+/**-------------- Navigation style ---------------**/
+  #header ul.navigation {
+	list-style-type:none;
+	margin:-82px 0 0 300px;
+	padding:0;
+	overflow:hidden;
+}
+#header ul.navigation li {
+	float:left;
+	height:35px;
+	width:120px;
+	
+}
+#header ul.navigation li.active {
+	background:url("../images/menu.gif");
+	background-repeat:no-repeat;
+	background-position: 0 -160px;
+}
+#header ul.navigation li a {
+	text-decoration:none;
+	color:#2c1d00;
+	font-family:"Myriad Pro";
+	font-size:14px;
+	font-weight:bold;
+	display:inline-block;
+	line-height:35px;
+	background:url("../images/menu-separator.gif");
+	background-repeat:no-repeat;
+	background-position:right;
+	height:35px;
+	padding:0 20px 0 20px;
+	text-align:center;
+	width:75px;
+}
+#header ul.navigation li a:hover {
+	color:#ffffff;
+}
+/**------------- Start of body style ----------------**/
+  
+  #body div.banner {
+	background:url("../images/dog.jpg");
+	background-position:center;
+	background-repeat:no-repeat;
+	height:606px;
+}
+#body div#content {
+	width:auto;
+	margin:0 auto;
+	overflow:hidden;
+	background-image:none;
+	height:auto;
+	overflow:hidden;
+}
+#body div#content .content {
+	
+	width:auto;
+	margin-right:20px;
+	background-image:none;
+	height:auto;
+	overflow:hidden;
+}
+#body #content .content h2 {
+	font-family: "Myriad Pro";
+	margin: 80px 0 0 30px;
+}
+#body #content .content ul {
+	margin:0;
+	padding:0;
+	list-style-type:none;
+}
+#body #content .content ul li {
+	width:300px;
+	padding:0 10px;
+	margin:0 0 20px 0;
+	float:left;
+	line-height:25px;
+	height:auto;
+}
+#body #content .content ul li span {
+	display:block;
+}
+#body #content .content ul li span a {
+	color: #7F7154;
+	font-family: "Myriad Pro";
+	font-size: 14px;
+	text-decoration:none;
+}
+#body #content .content ul li a {
+	text-decoration:none;
+}
+
+#body #content .content ul li h2 {
+	font-family:"Myriad Pro";
+	font-size:20px;
+	margin:0;
+}
+#body #content .content ul li p {
+	font-family:"Myriad Pro";
+	font-size:14px;
+	text-align:justify;
+	color:#7f7154;
+	margin:0;
+}
+#body #content .content ul li p a {
+	color:#FF9E01;
+}
+#body #content .content ul li p a:hover {
+	color:#7f7154;
+}
+#body #content .content ul li img {
+	border:0;
+	float:left;
+	margin-right:10px;
+}
+
+
+#footer #footnote {
+	background-color:#ffad00;
+}
+
+/**------------- table ----------------**/
+#table-title{
+	color:#FF9E01;
+	padding: 8px;
+	text-align: center;
+	
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+th {
+    background-color: #f2f2f2;
+}
+tr:hover{
+	background-color: #c0c0c0;
+}
+#body .cn{
+	color: #0080ff;
+    text-decoration: underline; 
+}
+#body .cn:hover{
+	color: #ffff00;
+    text-decoration: underline; 
+}
+
+/**------------- phân trang ----------------**/
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    margin: 0 5px;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #007bff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.pagination a:hover {
+    background-color: #ddd;
+}
+
+.pagination a.current {
+    background-color: #007bff;
+    color: white;
+    border: 1px solid #007bff;
+}

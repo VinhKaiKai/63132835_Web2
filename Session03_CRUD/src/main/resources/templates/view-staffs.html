@@ -15,9 +15,20 @@
 
 	<div class="container">
 		<h2>LIST STAFFS</h2>
-		<p>
-			<a class="btn btn-primary" href="/staffs">ADD STAFF</a>
-		</p>
+		
+		<div style="display: flex; align-items: center; justify-content: space-between;">
+			<p>
+				<a class="btn btn-primary" href="/staffs/vinh">ADD STAFF</a>
+			</p>
+			<form th:action="@{/staffs/list2}" style="display: flex; align-items: center; gap: 10px;">
+    			<label for="keyword" style="font-weight: bold; margin-right: 5px;">Filter:</label>
+    			<input type="text" name="keyword" id="keyword" size="15" th:value="${keyword}" required 
+           			style="padding: 5px; border: 1px solid #ccc; border-radius: 4px;" />
+    			<input type="submit" value="Search" 
+           			style="padding: 5px 10px; border: 1px solid #007bff; background-color: #007bff; color: white; border-radius: 4px; cursor: pointer;" />
+			</form>
+		</div>
+		
 		<table class="table table-bordered">
 			<thead>
 				<tr>
@@ -43,7 +54,7 @@
 					<td th:text="${item.phone}"></td>
 					<td th:text="${item.salary}"></td>
 					<td th:text="${item.departs.name}"></td>
-					<td><span th:text="${item.gender}? 'Nam': 'Nu'"></span></td>
+					<td><span th:text="${item.gender}? 'Nam': 'Nữ'"></span></td>
 					<td><a class="btn btn-primary btn-sm" th:href="@{'/staffs/edit/'+${item.id}}">Edit</a> | 	
 					<a	class="btn btn-danger btn-sm" th:href="@{'/staffs/delete/'+${item.id}}">Del</a></td>
 					</tr>

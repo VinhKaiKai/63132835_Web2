@@ -6,8 +6,10 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import learncode.spring.models.Courses;
 import learncode.spring.models.Departs;
 import learncode.spring.models.Staffs;
+import learncode.spring.models.Students;
 import learncode.spring.repositories.DepartRepository;
 import learncode.spring.repositories.StaffRepository;
 
@@ -22,6 +24,10 @@ public class StaffServiceImpl implements StaffService{
 	@Override
 	public List<Departs> findAllDeparts(){
 		return (List<Departs>)departRepository.findAll();
+	}
+	@Override
+	public List<Staffs> findAllStaffs(){
+		return (List<Staffs>)staffRepository.findAll();
 	}
 	
 	@Override
@@ -83,6 +89,16 @@ public class StaffServiceImpl implements StaffService{
 	public void deleteAll() {
 		staffRepository.deleteAll();
 	}
+	
+	//Tìm kiếm 
+			@Override
+			public List<Staffs> listAll(String keyword) {
+				if (keyword  != null) {
+					return staffRepository.search(keyword);
+				}else
+				
+				return (List<Staffs>) staffRepository.findAll();
+			}
 	
 	
 }

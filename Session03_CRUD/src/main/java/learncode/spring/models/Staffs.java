@@ -54,36 +54,41 @@ public class Staffs {
 	@JoinColumn(name="departId")
 	private Departs departs;
 	
+	
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "staffs")
+	private Set<Students> students;
+	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "staffs")
 	private Set<Records> records;
-
-	
-	public Set<Records> getRecords() {
-		return records;
-	}
-
-	public void setRecords(Set<Records> records) {
-		this.records = records;
-	}
 
 	public Staffs() {
 		super();
 	}
 
-	public Staffs(String id, String name, boolean gender, Date birthday, String photo, String email, String phone,
-			Float salary, String notes, Departs departs) {
+	
+	public Staffs(String id) {
+	    this.id = id;
+	}
+	public Staffs(String id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.gender = gender;
-		this.birthday = birthday;
-		this.photo = photo;
-		this.email = email;
-		this.phone = phone;
-		this.salary = salary;
-		this.notes = notes;
-		this.departs = departs;
 	}
+	 public Staffs(String id, String name, boolean gender, Date birthday, String photo, String email,
+               String phone, Float salary, String notes, Departs departs) {
+     this.id = id;
+     this.name = name;
+     this.gender = gender;
+     this.birthday = birthday;
+     this.photo = photo;
+     this.email = email;
+     this.phone = phone;
+     this.salary = salary;
+     this.notes = notes;
+     this.departs = departs;
+ }
+
 
 	public String getId() {
 		return id;
@@ -164,6 +169,24 @@ public class Staffs {
 	public void setDeparts(Departs departs) {
 		this.departs = departs;
 	}
+
+	public Set<Students> getStudents() {
+		return students;
+	}
+
+	public void setStudents(Set<Students> students) {
+		this.students = students;
+	}
+
+	public Set<Records> getRecords() {
+		return records;
+	}
+
+	public void setRecords(Set<Records> records) {
+		this.records = records;
+	}
+
+	
 	
 	
 }
