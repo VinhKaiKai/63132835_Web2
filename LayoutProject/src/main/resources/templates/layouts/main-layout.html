@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<title>Page 1 Title</title>
+
+<meta charset="UTF-8" />
+<link rel="stylesheet" type="text/css" href="./css/style.css" />
+<!-- Other javascript, css source files -->
+</head>
+<body>
+	<header>
+		<h2>FPOLY DA NANG</h2>
+	</header>
+	
+	
+	<section>
+		<nav>
+			<ul>
+				<li><a href="/home">Home</a></li>
+				<li><a href="/product">Product</a></li>
+				<li><a href="/contact">Contact</a></li>
+				<li><a href="#">About</a></li>
+			</ul>
+		</nav>
+		
+	<!-- Thay đổi phần này -->
+	<article layout:fragment="content">
+		<h2>TRANG CHỦ</h2>
+		<p>Đây là trang chủ của tôi</p>
+	</article>
+	
+	
+	</section>
+	
+	
+	
+	<footer>
+		<p>Footer</p>
+		<p>Copy right by namnv</p>
+	</footer>
+</body>
+</html>
