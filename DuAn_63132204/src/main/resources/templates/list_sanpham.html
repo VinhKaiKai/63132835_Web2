@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Pet Shop</title>
+<meta charset="utf-8">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="header"> <a href="/" id="logo"><img src="images/logo.gif" width="310" height="114" alt=""></a>
+  <ul class="navigation">
+    <li><a href="/">Trang chủ</a></li>
+    <li><a href="/khachhang">Khách hàng</a></li>
+    <li><a href="/nhanvien">Nhân viên</a></li>
+    <li><a href="/dichvu">Dịch vụ</a></li>
+    <li class="active"><a href="/sanpham">Sản Phẩm</a></li>
+    <li><a href="/thongke">Thống kê</a></li>
+  </ul>
+</div>
+<div id="body">
+  <h2 id="table-title">Danh sách Sản phẩm</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên SP</th>
+                <th>Mô tả</th>
+                <th>Giá tiền</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="sanpham : ${listSanPham}">
+                <td th:text="${sanpham.idsp}">ID</td>
+                <td th:text="${sanpham.tensp}">Name</td>
+                <td th:text="${sanpham.mota}">Description</td>
+                <td th:text="${sanpham.gia}">Price</td>
+                <td>
+                    <a class="cn" th:href="@{/hoadonSP/{id}(id=${sanpham.idsp})}">Thêm Giỏ hàng</a>
+                </td>
+                <td>
+                    <a class="cn" th:href="@{/sanpham/edit/{id}(id=${sanpham.idsp})}">Sửa</a>
+                    <a class="cn" th:href="@{/sanpham/delete/{id}(id=${sanpham.idsp})}" onclick="return confirm('Bạn có chắc chắn muốn xóa không?')">Xóa</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/sanpham/add">Thêm mới</a>
+</div>
+<div id="footer">
+  <p>&copy; 2024 Cửa hàng Chăm sóc Thú cưng</p>
+</div>
+</body>
+</html>

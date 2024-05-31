@@ -3,10 +3,15 @@ package learncode.spring.services;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import learncode.spring.models.Courses;
 import learncode.spring.models.Departs;
 import learncode.spring.models.Staffs;
 import learncode.spring.models.Students;
+
 
 public interface StaffService {
 
@@ -41,4 +46,8 @@ public interface StaffService {
 	//Tìm kiếm
 	public List<Staffs> listAll(String keyword);
 
+	// Thêm phương thức để lấy danh sách nhân viên theo trang
+    Page<Staffs> findAll(Pageable pageable);
+
+	
 }

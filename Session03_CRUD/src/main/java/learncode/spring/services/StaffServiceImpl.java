@@ -4,7 +4,11 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
 
 import learncode.spring.models.Courses;
 import learncode.spring.models.Departs;
@@ -99,6 +103,21 @@ public class StaffServiceImpl implements StaffService{
 				
 				return (List<Staffs>) staffRepository.findAll();
 			}
+	
+	
+			
+		    
+		    
+		
+	
+			@Override
+		    public Page<Staffs> findAll(Pageable pageable) {
+		        // Implement method logic here
+		        // For example, interact with a repository to fetch the data
+		        return staffRepository.findAll(pageable);
+		    }
+			
+			
 	
 	
 }

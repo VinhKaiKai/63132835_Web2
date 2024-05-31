@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Pet Shop</title>
+<meta charset="utf-8">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="header"> <a href="/" id="logo"><img src="images/logo.gif" width="310" height="114" alt=""></a>
+  <ul class="navigation">
+    <li><a href="/">Trang chủ</a></li>
+    <li class="active"><a href="/khachhang">Khách hàng</a></li>
+    <li><a href="/nhanvien">Nhân viên</a></li>
+    <li><a href="/dichvu">Dịch vụ</a></li>
+    <li><a href="/sanpham">Sản Phẩm</a></li>
+    <li><a href="/thongke">Thống kê</a></li>
+  </ul>
+</div>
+<div id="body">
+<!-- thông tin khách hàng cần lập hóa đơn -->
+<h2 id="table-title">Chi Tiết Hóa Đơn</h2>
+
+    
+ <!--  danh sách sản phẩm -->
+  <h2 id="table-title">Danh sách Sản phẩm</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Hoa Don ID</th>
+                <th>Dich Vu ID</th>
+                <th>Pet ID</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Iterate through the list of CTHD Dich Vu and display each record -->
+            <tr th:each="cthdDichVu : ${cthdDichVuList}">
+                <td th:text="${cthdDichVu.idcthd}">ID</td>
+                <td th:text="${cthdDichVu.idhd}">Hoa Don ID</td>
+                <td th:text="${cthdDichVu.iddv}">Dich Vu ID</td>
+                <td th:text="${cthdDichVu.idpet}">Pet ID</td>
+                <td th:text="${cthdDichVu.tong}">Total</td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- danh sách dịch vụ -->
+    <h2 id="table-title">Danh sách Dịch vụ</h2>
+    <table border="1">
+         <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Hoa Don ID</th>
+                <th>San Pham ID</th>
+                <th>Quantity</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Iterate through the list of CTHD San Pham and display each record -->
+            <tr th:each="cthdSanPham : ${cthdSanPhamList}">
+                <td th:text="${cthdSanPham.idcthd}">ID</td>
+                <td th:text="${cthdSanPham.idhd}">Hoa Don ID</td>
+                <td th:text="${cthdSanPham.idsp}">San Pham ID</td>
+                <td th:text="${cthdSanPham.soluong}">Quantity</td>
+                <td th:text="${cthdSanPham.tong}">Total</td>
+            </tr>
+        </tbody>
+    </table>
+    
+</div>
+<div id="footer">
+  <p>&copy; 2024 Cửa hàng Chăm sóc Thú cưng</p>
+</div>
+</body>
+</html>

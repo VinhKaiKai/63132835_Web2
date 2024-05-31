@@ -16,6 +16,7 @@ import java.util.Optional;
 
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.repository.query.Param;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.stereotype.Controller;
@@ -26,7 +27,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+
 
 import learncode.spring.dto.StaffDTO;
 import learncode.spring.models.Departs;
@@ -35,9 +38,13 @@ import learncode.spring.models.Students;
 import learncode.spring.services.DepartService;
 import learncode.spring.services.StaffService;
 
+
 @Controller
 @RequestMapping("/staffs")
 public class StaffController {
+	//@Autowired
+	//StaffsptService staffsptService;
+	
 	@Autowired
 	StaffService staffService;
 	
@@ -50,7 +57,11 @@ public class StaffController {
 	{
 		model.addAttribute("LIST_STAFF", staffService.findAll());
 		return "view-staffs";
+		
 	}
+	
+	
+	
 	
 	
 	//hàm thêm add
@@ -179,5 +190,12 @@ public class StaffController {
 				model.addAttribute("keyword", keyword);
 				return "view-staffs";
 			}
+			
+	
+			
+
+			
+			
+			
 	
 }

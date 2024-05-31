@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Pet Shop</title>
+<meta charset="utf-8">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="header"> <a href="/" id="logo"><img src="images/logo.gif" width="310" height="114" alt=""></a>
+  <ul class="navigation">
+    <li><a href="/">Trang chủ</a></li>
+    <li><a href="/khachhang">Khách hàng</a></li>
+    <li><a href="/nhanvien">Nhân viên</a></li>
+    <li><a href="/dichvu">Dịch vụ</a></li>
+    <li><a href="/sanpham">Sản Phẩm</a></li>
+    <li class="active"><a href="/thongke">Thống Kê</a></li>
+  </ul>
+</div>
+<div id="body">
+<h2 id="table-title">Thống Kê</h2>
+
+    
+    <h2><a class="cn" href="/hoadonkhachhang">Lập Hóa Dơn</a></h2>
+    <form th:action="@{/thongke}" method="get">
+        <label for="start-date">Ngày đầu:</label>
+        <input type="date" id="start-date" name="start-date">
+        
+        <label for="end-date">Ngày Cuối:</label>
+        <input type="date" id="end-date" name="end-date">
+        
+        <button type="submit">Thống Kê</button>
+    </form>
+    
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>ID Khách hàng</th>
+            <th>Tên Khách hàng</th>
+            <th>ID Nhân Viên</th>
+            <th>Tên Nhân Viên</th>
+            <th>Tổng HD</th>
+            <th>Ngày giao dịch</th>
+        </tr>
+        <tr th:each="hoaDon : ${hoaDons}">
+            <td th:text="${hoaDon.idhd}"></td>
+            <td th:text="${hoaDon.khachHang.idkh}"></td>
+            <td th:text="${hoaDon.khachHang.hotenkh}"></td>
+            <td th:text="${hoaDon.nhanVien.idnv}"></td>
+            <td th:text="${hoaDon.nhanVien.hotennv}"></td>
+            <td th:text="${hoaDon.tonghd}"></td>
+            <td th:text="${hoaDon.ngaygd}"></td>
+            <!--
+            <td>
+            <a class="cn" th:href="@{/cthd/{id}(id=${khachHang.idkh})}">Chi tiết</a>
+            </td>
+              -->
+        </tr>
+    </table>
+    
+    <div>
+        <p>Total Revenue: <span th:text="${tongTien}"></span></p>
+        <p>Total Invoices: <span th:text="${tongSL}"></span></p>
+    </div>
+</div>
+<div id="footer">
+  <p>&copy; 2024 Cửa hàng Chăm sóc Thú cưng</p>
+</div>
+</body>
+</html>
+
+
