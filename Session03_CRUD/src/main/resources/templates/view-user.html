@@ -4,21 +4,36 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+		<link rel="stylesheet" type="text/css" th:href="@{/css/menu.css}">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-        <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     </head>
     <body>
+    
+    
+    	<section class="dau" id="dau">
+        	<header id="navbar">
+            	<a href="#" class="logo">HSK-HSKK</a>
+            <ul>
+                <li><a  href="#menu" class="active">Home</a></li>
+                <li><a style="font-weight:600" href="/list">Quản lý</a></li>
+                <li><a style="font-weight:600" href="/staffs/list">Nhân viên</a></li>
+                <li><a style="font-weight:600" href="/students/list">Học viên</a></li>
+                <li><a style="font-weight:600" href="/sendmail">Gửi mail</a></li>
+                <p style="padding-top:3px;"><label style="color:white; font-weight:700 " th:text="'Xin chào : '+${session.USERNAME}"></label><a href="/logout" style="color:red; font-weight: 600; text-decoration: none;">Đăng Xuất</a>
+				</p>
+            </ul>
+            	<span class="menuicon" onclick="togglemenu();"></span>
+        	</header>
+    	</section>
         
-        <div class="container">
+        <div class="container" style="margin-top:70px;">
             <h2>Danh sách người quản lý</h2>
-            <p><a class="btn btn-primary" href="/">ADD USER</a></p>
+            <p><a class="btn btn-primary" th:href="@{/register}">ADD USER</a></p>
             <p><label th:text="'Xin chào: '+${session.USERNAME}"></label><a href="/logout">Đăng Xuất</a></p>
             
             
@@ -49,7 +64,7 @@
                         <td> <span th:text="${item.gender} ? 'Nam':'Nữ'"></span> </td>
                         
                         <td><a class="btn btn-primary btn-sm" th:href="@{'/edit/'+ ${item.username}}">Edit</a> |
-                         <a class="btn btn-danger btn-sm" th:href="@{'/delete/'+ ${item.username}}">Del</a></td>
+                         <a class="btn btn-danger btn-sm" th:href="@{'/delete/'+ ${item.username}}" onclick="return confirm('Bạn có chắc chắn muốn xóa không?')">Del</a></td>
                     </tr>
                     
                     
@@ -58,3 +73,8 @@
         </div>
     </body>
 </html>
+
+
+
+
+

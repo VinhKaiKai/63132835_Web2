@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import learncode.spring.models.User;
@@ -103,4 +105,20 @@ public class UserServiceImpl implements UserService{
 		
 		return (List<User>) userRepository.findAll();
 	}
+	
+	
+	
+	//phân trang làm thêm 
+	 //@Override
+	    //public Page<User> findAll(Pageable pageable) {
+	        //return userRepository.findAll(pageable);
+	    //}
+
+	    //@Override
+	    //public Page<User> search(String keyword, Pageable pageable) {
+	        //if (keyword != null && !keyword.isEmpty()) {
+	            //return userRepository.search(keyword, pageable);
+	        //}
+	        //return userRepository.findAll(pageable);
+	    //}
 }

@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import learncode.spring.models.User;
 import learncode.spring.repositories.UserRepository;
@@ -44,7 +44,11 @@ public interface UserService {
 	//Tìm kiếm
 	public List<User> listAll(String keyword);
 	
-
+	
+	
+	//phân trang
+	//Page<User> findAll(Pageable pageable);
+    //Page<User> search(String keyword, Pageable pageable);
 	
 
 }

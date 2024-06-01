@@ -5,6 +5,9 @@ import java.util.Optional;
 
 import org.hibernate.engine.jdbc.connections.spi.AbstractDataSourceBasedMultiTenantConnectionProviderImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.query.Param;
 import org.springframework.objenesis.instantiator.basic.NewInstanceInstantiator;
 import org.springframework.stereotype.Controller;
@@ -30,8 +33,8 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
-	@Autowired
-	User _userBean;
+	//@Autowired
+	//User _userBean;
 	
 	
 	//mới vô cho nó hiện trang đăng nhập. nếu không có tài khoản thì đăng ký.
@@ -73,6 +76,8 @@ public class UserController {
 		return "login";
 		
 	}
+	
+	
 	
 	// Hàm CHỈNH SỬA 
 	@RequestMapping("/edit/{username}") //bấm vào nút edit thì nó sẽ truyền cái username vô 
@@ -137,5 +142,6 @@ public class UserController {
 		model.addAttribute("keyword", keyword);
 		return "view-user";
 	}
+	 
 	
 }

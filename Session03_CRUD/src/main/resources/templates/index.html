@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" type="text/css" th:href="@{/css/base.css}">
-<link rel="stylesheet" type="text/css" th:href="@{/css/menu.css}">
-<link rel="stylesheet" th:href="@{https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap}">
-
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/base.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/menu.css}">
+	<link rel="stylesheet" th:href="@{https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap}">
 </head>
 <body>
 	 <section class="dau" id="dau">
@@ -19,11 +18,12 @@
                 <li><a style="font-weight:600" href="/students/list">Học viên</a></li>
                 <li><a style="font-weight:600" href="/sendmail">Gửi mail</a></li>
                 <p style="padding-top:3px;"><label style="color:white; font-weight:700 " th:text="'Xin chào : '+${session.USERNAME}"></label><a href="/logout" style="color:red; font-weight: 600; text-decoration: none;">Đăng Xuất</a>
-</p>
+				</p>
             </ul>
             <span class="menuicon" onclick="togglemenu();"></span>
         </header>
     </section>
+	
 	<section class="menu" id="menu">
             <div class="bannervideo" id="slidershow">
                 <video th:src="@{/video/video-2.mp4}" muted autoplay loop class="active"></video>
