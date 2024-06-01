@@ -82,11 +82,12 @@ public class UserServiceImpl implements UserService{
 	}
 	
 	
+	// hàm để login
 	@Override
 	public boolean checkLogin(String username, String password)
 	{
-		Optional<User> optionalUser = findById(username); // tim tên user đã tồn tại trong database 
-		if(optionalUser.isPresent() && optionalUser.get().getPassword().equals(password))
+		Optional<User> optionalUser = findById(username); // Tìm tên user đã tồn tại trong database 
+		if(optionalUser.isPresent() && optionalUser.get().getPassword().equals(password)) // nếu optionalUser có tồn tại thì so cái mk 
 		{
 			return true;
 		}
@@ -108,17 +109,5 @@ public class UserServiceImpl implements UserService{
 	
 	
 	
-	//phân trang làm thêm 
-	 //@Override
-	    //public Page<User> findAll(Pageable pageable) {
-	        //return userRepository.findAll(pageable);
-	    //}
-
-	    //@Override
-	    //public Page<User> search(String keyword, Pageable pageable) {
-	        //if (keyword != null && !keyword.isEmpty()) {
-	            //return userRepository.search(keyword, pageable);
-	        //}
-	        //return userRepository.findAll(pageable);
-	    //}
+	
 }

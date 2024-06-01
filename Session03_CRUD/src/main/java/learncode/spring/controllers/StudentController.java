@@ -82,18 +82,25 @@ public class StudentController {
 
 	@PostMapping("/saveOrUpdate")
 	public String save(ModelMap model, @ModelAttribute("STUDENTDTO") StudentDTO dto) {
+		
+		//kiểm tra xem sinh viên với ID từ form có tồn tại trong cơ sở dữ liệu không
 		Optional<Students> optionalStudent = studentService.findById(dto.getId());
+		// đối tượng sẽ tạo ra 
 		Students student = null;
-
+		// ảnh mặc định
 		String image = "Logo.png";
+		// đường dẫn tới ảnh
 		Path path = Paths.get("uploads/");
-
+		
 		if (optionalStudent.isPresent()) {
 			// save
+			//Nếu không có ảnh mới 
+			//giữ nguyên ảnh hiện tại của sinh viên từ cơ sở dữ liệu 
 			if (dto.getPhoto().isEmpty()) {
 				image = optionalStudent.get().getPhoto();
 			} else {
 				try {
+					//Nếu có ảnh mới, lưu ảnh mới vào thư mục uploads/ 
 					InputStream inputStream = dto.getPhoto().getInputStream();
 					Files.copy(inputStream, path.resolve(dto.getPhoto().getOriginalFilename()),
 							StandardCopyOption.REPLACE_EXISTING);
@@ -105,6 +112,7 @@ public class StudentController {
 			}
 		} else {
 			// add
+			//Nếu không có ảnh được tải lên, sử dụng ảnh mặc định là "Logo.png".
 			if (!dto.getPhoto().isEmpty()) {
 				try {
 					InputStream inputStream = dto.getPhoto().getInputStream();
@@ -118,10 +126,11 @@ public class StudentController {
 			}
 		}
 
+		//tạo học sinh mới 
 		student = new Students(dto.getId(), dto.getName(), dto.isGender(), dto.getBirthday(), dto.getNgaydangkyhoc(),
 				image, dto.getEmail(), dto.getPhone(), dto.isHthocphi(), new Courses(dto.getCourseId(), ""),
 				new Staffs(dto.getStaffId(), ""));
-
+		// tạo xong rồi lưu
 		studentService.save(student);
 		return "student";
 	}
@@ -178,14 +187,11 @@ public class StudentController {
 		return staffService.findAllStaffs();
 	}
 
-	// hàm tìm kiếm---------------------------------------------- chưa xong
+	// hàm tìm kiếm---------------------------------------------- 
 	@RequestMapping("/list2")
 	public String viewHomePage1(Model model, @Param("keyword") String keyword, @RequestParam("p") Optional<Integer> p) {
 		List<Students> listStudent = studentService.listAll(keyword);
-//		Pageable pageable = PageRequest.of(p.orElse(0), 5);
-//		
-//		Page<Students> page = studentService.findAllPage(pageable);
-//		model.addAttribute("LIST_STUDENT", page);
+
 		
 		long countHocSinhChuaDongHocPhi = studentService.countByHthocphi(false);
 		model.addAttribute("countHocSinhChuaDongHocPhi", countHocSinhChuaDongHocPhi);

@@ -33,8 +33,6 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
-	//@Autowired
-	//User _userBean;
 	
 	
 	//mới vô cho nó hiện trang đăng nhập. nếu không có tài khoản thì đăng ký.
@@ -137,7 +135,7 @@ public class UserController {
 	}
 	
 	
-	//hàm tìm kiếm---------------------------------------------- chưa xong 
+	//hàm tìm kiếm---------------------------------------------- 
 	@RequestMapping("/list2")
 	public String viewHomePage1(Model model, @Param("keyword") String keyword) {
 		List<User> listUser = userService.listAll(keyword);

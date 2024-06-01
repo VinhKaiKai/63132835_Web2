@@ -35,14 +35,14 @@
         
         	<div  style="margin-top:100px; margin-left:70px;margin-right:70px;">
             	<h2>Danh sách người quản lý</h2>
-            	<p><a class="btn btn-primary" th:href="@{/register}">ADD USER</a></p>
+            	
             	<div style="display:flex; align-items: center; justify-content: space-between;">
-            		<p><label th:text="'Xin chào: '+${session.USERNAME}"></label><a href="/logout">- Đăng Xuất</a></p>
+            		<p><a class="btn btn-primary" th:href="@{/register}">Thêm người dùng mới</a></p>
             		<form th:action="@{/list2}" style="display: flex; align-items: center; gap: 10px;   border-radius: 5px;">
     					<label for="keyword" style="font-weight: bold; ">Tìm kiếm người dùng:</label>
     					<input type="text" name="keyword" id="keyword" size="15" th:value="${keyword}" required 
            					style="padding: 5px; border: 1px solid #ccc; border-radius: 3px;" />
-    					<input type="submit" value="Search" 
+    					<input type="submit" value="Tìm kiếm" 
            					style="background-color: #551E9C; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer;" />
 					</form>
             	</div>
@@ -73,8 +73,8 @@
                     	<td><span th:text="${item.gender} ? 'Nam':'Nữ'"></span></td>
                     	<td>
                         	<span class="action_btn">
-                            	<a th:href="@{'/edit/'+ ${item.username}}">edit</a>
-                            	<a th:href="@{'/delete/'+ ${item.username}}" onclick="return confirm('Bạn có chắc chắn muốn xóa không?')">delete</a>
+                            	<a th:href="@{'/edit/'+ ${item.username}}">Sửa</a>
+                            	<a th:href="@{'/delete/'+ ${item.username}}" onclick="return confirm('Bạn có chắc chắn muốn xóa không?')">Xóa</a>
                         	</span>
                     	</td>
                 	</tr>

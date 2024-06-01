@@ -13,14 +13,14 @@
 <body>
 	<section class="dau" id="dau">
         <header id="navbar">
-            <a href="#" class="logo">HSK-HSKK</a>
+            <a href="/trangchu" class="logo">HSK-HSKK</a>
             <ul>
-                <li><a  href="#menu" class="active">HOME</a></li>
+                <li><a  href="/trangchu" class="active">HOME</a></li>
                 <li><a style="font-weight:600" href="/list">Quản lý</a></li>
                 <li><a style="font-weight:600" href="/staffs/list">Nhân viên</a></li>
                 <li><a style="font-weight:600" href="/students/list/page">Học viên</a></li>
                 <li><a style="font-weight:600" href="/sendmail">Gửi mail</a></li>
-                <p style="padding-top:3px;"><label style="color:white; font-weight:700 " th:text="'Xin chào : '+${session.USERNAME}"></label><a href="/logout" style="color:red; font-weight: 600; text-decoration: none;">Đăng Xuất</a>
+                <p style="padding-top:3px;"><label style="color:white; font-weight:700 " th:text="'Xin chào : '+${session.USERNAME}"></label><a href="/logout" style="color:red; font-weight: 600; text-decoration: none;">- Đăng Xuất</a>
 				</p>
             </ul>
             <span class="menuicon" onclick="togglemenu();"></span>
@@ -28,16 +28,16 @@
     </section>
     
 	<div >
-		<h2  style="margin-top: 100px; margin-left:20px;">LIST STAFFS</h2>
+		<h2  style="margin-top: 100px; margin-left:20px;">Danh sách nhân viên</h2>
 		<div style="display: flex; align-items: center; justify-content: space-between; margin-left:20px; margin-right:20px;">
 			<p>
-				<a class="btn btn-primary" href="/staffs/vinh">ADD STAFF</a>
+				<a class="btn btn-primary" href="/staffs/vinh">Thêm nhân viên</a>
 			</p>
 			<form th:action="@{/staffs/list2}" style="display: flex; align-items: center; gap: 10px;">
-    			<label for="keyword" style="font-weight: bold; margin-right: 5px;">Filter:</label>
+    			<label for="keyword" style="font-weight: bold; margin-right: 5px;">Tìm kiếm nhân viên:</label>
     			<input type="text" name="keyword" id="keyword" size="15" th:value="${keyword}" required 
            			style="padding: 5px; border: 1px solid #ccc; border-radius: 4px;" />
-    			<input type="submit" value="Search" 
+    			<input type="submit" value="Tìm kiếm" 
            			style="padding: 5px 10px; border: 1px solid #007bff; background-color: #007bff; color: white; border-radius: 4px; cursor: pointer;" />
 			</form>
 		</div>

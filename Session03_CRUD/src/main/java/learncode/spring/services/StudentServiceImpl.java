@@ -114,6 +114,9 @@ public class StudentServiceImpl implements StudentService{
 		public long countByHthocphi(boolean hthocphi) {
 		    return studentRepository.countByhthocphi(hthocphi);
 		}
+		
+		
+		
 		@Override
 		public Page<Students> findAllPage(Pageable pageable) {
 			// TODO Auto-generated method stub

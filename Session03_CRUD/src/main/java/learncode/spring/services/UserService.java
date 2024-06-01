@@ -46,9 +46,5 @@ public interface UserService {
 	
 	
 	
-	//phân trang
-	//Page<User> findAll(Pageable pageable);
-    //Page<User> search(String keyword, Pageable pageable);
-	
 
 }

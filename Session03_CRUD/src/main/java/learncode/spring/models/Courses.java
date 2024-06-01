@@ -25,6 +25,7 @@ public class Courses {
 	//ghi chú khóa học
 	@Column(length = 500)
 	private String note;
+	
 	// giá khóa học
 	private Float price;
 	// thời gian khóa học

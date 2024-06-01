@@ -25,9 +25,7 @@ public interface UserRepository extends JpaRepository<User, String>{ // String n
 	
 	
 	
-	// thay đổi thêm vô ( chức năng phân trang )
-	//Page<User> search(@Param("keyword") String keyword, Pageable pageable);
-    //User findByFullname(String fullname);
+	
     
   
 
