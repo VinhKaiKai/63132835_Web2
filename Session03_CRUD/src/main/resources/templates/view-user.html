@@ -5,6 +5,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
 		<link rel="stylesheet" type="text/css" th:href="@{/css/menu.css}">
+		<link rel="stylesheet" type="text/css" th:href="@{/css/table.css}">
+		
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -17,9 +19,9 @@
     
     	<section class="dau" id="dau">
         	<header id="navbar">
-            	<a href="#" class="logo">HSK-HSKK</a>
+            	<a href="/trangchu" class="logo">HSK-HSKK</a>
             <ul>
-                <li><a  href="#menu" class="active">Home</a></li>
+                <li><a  href="/trangchu" class="active">HOME</a></li>
                 <li><a style="font-weight:600" href="/list">Quản lý</a></li>
                 <li><a style="font-weight:600" href="/staffs/list">Nhân viên</a></li>
                 <li><a style="font-weight:600" href="/students/list/page">Học viên</a></li>
@@ -31,20 +33,57 @@
         	</header>
     	</section>
         
-        <div class="container" style="margin-top:70px;">
-            <h2>Danh sách người quản lý</h2>
-            <p><a class="btn btn-primary" th:href="@{/register}">ADD USER</a></p>
-            <p><label th:text="'Xin chào: '+${session.USERNAME}"></label><a href="/logout">Đăng Xuất</a></p>
-            
-            
-            
-            <form th:action="@{/list2}">
-				Filter: <input type="text" name="keyword" id="keyword" size="15"
-				th:value="${keyword}" required /> &nbsp; 
-					<input type="submit"
-				value="Search" /> &nbsp; 		
-			</form>
-            <table class="table table-bordered">
+        	<div  style="margin-top:100px; margin-left:70px;margin-right:70px;">
+            	<h2>Danh sách người quản lý</h2>
+            	<p><a class="btn btn-primary" th:href="@{/register}">ADD USER</a></p>
+            	<div style="display:flex; align-items: center; justify-content: space-between;">
+            		<p><label th:text="'Xin chào: '+${session.USERNAME}"></label><a href="/logout">- Đăng Xuất</a></p>
+            		<form th:action="@{/list2}" style="display: flex; align-items: center; gap: 10px;   border-radius: 5px;">
+    					<label for="keyword" style="font-weight: bold; ">Tìm kiếm người dùng:</label>
+    					<input type="text" name="keyword" id="keyword" size="15" th:value="${keyword}" required 
+           					style="padding: 5px; border: 1px solid #ccc; border-radius: 3px;" />
+    					<input type="submit" value="Search" 
+           					style="background-color: #551E9C; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer;" />
+					</form>
+            	</div>
+            	
+
+            	
+
+
+		<div class="table_responsive" style="margin-top:10px">
+        	<table>
+            	<thead>
+                	<tr>
+                    	<th>Tài Khoản</th>
+                    	<th>Mật Khẩu</th>
+                    	<th>Họ và Tên</th>
+                    	<th>Tuổi</th>
+                    	<th>Giới tính</th>
+                    	<th>Chức năng</th>
+                	</tr>
+            	</thead>
+
+            	<tbody>
+                	<tr th:each="item:${USERS}">
+                    	<td th:text="${item.username}"></td>
+                    	<td th:text="${item.password}"></td>
+                    	<td th:text="${item.fullname}"></td>
+                    	<td th:text="${item.age}"></td>
+                    	<td><span th:text="${item.gender} ? 'Nam':'Nữ'"></span></td>
+                    	<td>
+                        	<span class="action_btn">
+                            	<a th:href="@{'/edit/'+ ${item.username}}">edit</a>
+                            	<a th:href="@{'/delete/'+ ${item.username}}" onclick="return confirm('Bạn có chắc chắn muốn xóa không?')">delete</a>
+                        	</span>
+                    	</td>
+                	</tr>
+            	</tbody>
+        	</table>
+
+    	</div>
+			
+            <!--  <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th>UserName</th>
@@ -69,6 +108,7 @@
                     
                     
                 </tbody>
+                -->
             </table>
         </div>
     </body>

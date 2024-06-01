@@ -46,6 +46,10 @@ public class UserController {
 		return "login";
 	}
 	
+	@GetMapping("/trangchu")
+	public String trangchu() {
+		return "index";
+	}
 	
 	
 	//hàm này để dẫn tới trang "ĐĂNG KÝ"
@@ -113,7 +117,7 @@ public class UserController {
 	public String checkLogin(ModelMap model, @RequestParam("username") String username, @RequestParam("password") String password, HttpSession session) {	
 		if(userService.checkLogin(username,password))
 		{
-			System.out.println("Đăng nhập thanh công");
+			System.out.println("Đăng nhập thành công");
 			session.setAttribute("USERNAME", username);
 			model.addAttribute("USERS",userService.findAll());
 			return "index";

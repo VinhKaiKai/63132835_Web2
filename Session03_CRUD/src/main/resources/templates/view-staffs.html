@@ -5,6 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>JSP Page</title>
 	<link rel="stylesheet" type="text/css" th:href="@{/css/menu.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/table.css}">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -26,9 +27,9 @@
         </header>
     </section>
     
-	<div class="container" style="margin-top:70px;">
-		<h2>LIST STAFFS</h2>
-		<div style="display: flex; align-items: center; justify-content: space-between;">
+	<div >
+		<h2  style="margin-top: 100px; margin-left:20px;">LIST STAFFS</h2>
+		<div style="display: flex; align-items: center; justify-content: space-between; margin-left:20px; margin-right:20px;">
 			<p>
 				<a class="btn btn-primary" href="/staffs/vinh">ADD STAFF</a>
 			</p>
@@ -41,6 +42,50 @@
 			</form>
 		</div>
 		
+		
+		<!-- table ở đây -->
+		<div class="table_responsive" style="margin-left:20px; margin-right:20px;">
+        	<table>
+            	<thead>
+                	<tr>
+                    	<th>Ảnh</th>
+                    	<th>ID nhân viên</th>
+                    	<th>Họ và tên</th>
+                    	<th>Ngày sinh</th>
+                    	<th>Số điện thoại</th>
+                    	<th>Lương</th>
+                    	<th>Thuộc Bộ phận</th>
+                    	<th>Giới tính</th>
+						<th>Chức năng</th>
+                	</tr>
+            	</thead>
+
+            	<tbody>
+                	<tr th:each="item: ${LIST_STAFF}">
+                    	<td><img alt="" th:src="@{'/getimage/'+${item.photo}}"></td>
+                    	
+                    	<td th:text="${item.id}"></td>
+                    	<td th:text="${item.name}"></td>
+                    	<td th:text="${item.birthday}"></td>
+                    	<td th:text="${item.phone}"></td>
+                    	<td th:text="${item.salary}"></td>
+						<td th:text="${item.departs.name}"></td>
+                    	
+                    	<td><span th:text="${item.gender}? 'Nam': 'Nữ'"></span></td>
+                    	
+                    	<td>
+                        	<span class="action_btn">
+                            	<a th:href="@{'/staffs/edit/'+${item.id}}">Sửa</a>
+                            	<a th:href="@{'/staffs/delete/'+${item.id}}" onclick="return confirm('Bạn có chắc chắn muốn xóa không?')">Xóa</a>
+                        	</span>
+                    	</td>
+                	</tr>
+            	</tbody>
+        	</table>
+    	</div>
+		
+		
+		<!-- 
 		<table class="table table-bordered">
 			<thead>
 				<tr>
@@ -72,6 +117,7 @@
 					</tr>
 			</tbody>
 		</table>
+		 -->
 	</div>
 </body>
 </html>
