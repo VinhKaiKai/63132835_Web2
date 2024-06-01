@@ -16,6 +16,9 @@ public class StudentDTO {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
 	private Date birthday;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Temporal(TemporalType.DATE)
+	private Date ngaydangkyhoc;
 	private MultipartFile photo;
 	private String email;
 	private String phone;
@@ -25,13 +28,14 @@ public class StudentDTO {
 	public StudentDTO() {
 		super();
 	}
-	public StudentDTO(String id, String name, boolean gender, Date birthday, MultipartFile photo, String email,
-			String phone, boolean hthocphi, String courseId, String staffId) {
+	public StudentDTO(String id, String name, boolean gender, Date birthday, Date ngaydangkyhoc, MultipartFile photo,
+			String email, String phone, boolean hthocphi, String courseId, String staffId) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.gender = gender;
 		this.birthday = birthday;
+		this.ngaydangkyhoc = ngaydangkyhoc;
 		this.photo = photo;
 		this.email = email;
 		this.phone = phone;
@@ -62,6 +66,12 @@ public class StudentDTO {
 	}
 	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
+	}
+	public Date getNgaydangkyhoc() {
+		return ngaydangkyhoc;
+	}
+	public void setNgaydangkyhoc(Date ngaydangkyhoc) {
+		this.ngaydangkyhoc = ngaydangkyhoc;
 	}
 	public MultipartFile getPhoto() {
 		return photo;
@@ -99,6 +109,7 @@ public class StudentDTO {
 	public void setStaffId(String staffId) {
 		this.staffId = staffId;
 	}
+	
 	
 	
 	

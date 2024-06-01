@@ -117,7 +117,7 @@ public class StudentController {
 			}
 			
 			
-			student = new Students(dto.getId(), dto.getName(), dto.isGender(), dto.getBirthday(), image , dto.getEmail(),
+			student = new Students(dto.getId(), dto.getName(), dto.isGender(), dto.getBirthday(),dto.getNgaydangkyhoc(), image , dto.getEmail(),
 					dto.getPhone(),  dto.isHthocphi(), new Courses(dto.getCourseId(),""),new Staffs(dto.getStaffId(), ""));
 			
 			studentService.save(student);
@@ -142,7 +142,7 @@ public class StudentController {
 					MultipartFile multiphoto =
 							new MockMultipartFile("file", file.getName(),"text/plain",org.apache.commons.io.IOUtils.toByteArray(input));
 					
-					dto = new StudentDTO(st.getId(),st.getName(),st.isGender(),st.getBirthday(),multiphoto,st.getEmail(),st.getPhone(),
+					dto = new StudentDTO(st.getId(),st.getName(),st.isGender(),st.getBirthday(),st.getNgaydangkyhoc()  ,multiphoto,st.getEmail(),st.getPhone(),
 							st.isHthocphi(),st.getCourses().getId(),st.getStaffs().getId());
 					
 				} catch (FileNotFoundException e) {

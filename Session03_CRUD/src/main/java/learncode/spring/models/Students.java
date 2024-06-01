@@ -34,6 +34,10 @@ public class Students {
 	@Temporal(TemporalType.DATE)
 	private Date birthday;
 	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Temporal(TemporalType.DATE)
+	private Date ngaydangkyhoc;
+	
 	@Column(length = 500)
 	private String photo;
 	
@@ -59,13 +63,14 @@ public class Students {
 		super();
 	}
 
-	public Students(String id, String name, boolean gender, Date birthday, String photo, String email, String phone,
-			boolean hthocphi, Courses courses, Staffs staffs) {
+	public Students(String id, String name, boolean gender, Date birthday, Date ngaydangkyhoc, String photo,
+			String email, String phone, boolean hthocphi, Courses courses, Staffs staffs) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.gender = gender;
 		this.birthday = birthday;
+		this.ngaydangkyhoc = ngaydangkyhoc;
 		this.photo = photo;
 		this.email = email;
 		this.phone = phone;
@@ -104,6 +109,14 @@ public class Students {
 
 	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
+	}
+
+	public Date getNgaydangkyhoc() {
+		return ngaydangkyhoc;
+	}
+
+	public void setNgaydangkyhoc(Date ngaydangkyhoc) {
+		this.ngaydangkyhoc = ngaydangkyhoc;
 	}
 
 	public String getPhoto() {
@@ -153,7 +166,9 @@ public class Students {
 	public void setStaffs(Staffs staffs) {
 		this.staffs = staffs;
 	}
-	
+
+
+
 	
 
 	
