@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import learncode.spring.models.Courses;
@@ -106,4 +108,20 @@ public class StudentServiceImpl implements StudentService{
 			
 			return (List<Students>) studentRepository.findAll();
 		}
+		
+		// đếm
+		@Override
+		public long countByHthocphi(boolean hthocphi) {
+		    return studentRepository.countByhthocphi(hthocphi);
+		}
+		@Override
+		public Page<Students> findAllPage(Pageable pageable) {
+			// TODO Auto-generated method stub
+			return studentRepository.findAll(pageable);
+		}
+//		@Override
+//		public List<Students> findPage() {
+//			// TODO Auto-generated method stub
+//			return (List<Students>) studentRepository.findAll();
+//		}
 }

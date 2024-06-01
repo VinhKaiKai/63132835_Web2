@@ -3,6 +3,9 @@ package learncode.spring.services;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import learncode.spring.models.Courses;
 import learncode.spring.models.Staffs;
 import learncode.spring.models.Students;
@@ -42,4 +45,11 @@ public interface StudentService {
 
 	//Tìm kiếm
 		public List<Students> listAll(String keyword);
+		
+		
+		// đếm
+		long countByHthocphi(boolean hthocphi);
+		
+		Page<Students> findAllPage(Pageable pageable);
+//		List<Students> findPage();
 }

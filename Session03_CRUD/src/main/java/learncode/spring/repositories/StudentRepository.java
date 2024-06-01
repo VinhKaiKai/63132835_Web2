@@ -2,8 +2,9 @@ package learncode.spring.repositories;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
+//import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 
@@ -12,7 +13,7 @@ import learncode.spring.models.Students;
 
 
 @Repository
-public interface StudentRepository extends CrudRepository<Students,String>{
+public interface StudentRepository extends JpaRepository<Students,String>{
 
 	// chức năng tìm kiếm
 		//@Query("SELECT s FROM Students s WHERE CONCAT(s.id, ' ', s.name, ' ', s.gender, ' ', s.hthocphi) LIKE %?1% ")
@@ -23,4 +24,6 @@ public interface StudentRepository extends CrudRepository<Students,String>{
 	  	List<Students> search(String keyword);
 
 		public Students findByhthocphi(Boolean hthocphi);
+		
+		 long countByhthocphi(boolean hthocphi);
 }

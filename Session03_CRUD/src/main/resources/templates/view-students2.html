@@ -85,7 +85,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="item: ${LIST_STUDENT.content}">
+				<tr th:each="item: ${LIST_STUDENT}">
 					<td width="100"><img alt=""
 						th:src="@{'/getimage/'+${item.photo}}" width="80" height="70">
 					</td>
@@ -109,14 +109,14 @@
 
 			</tbody>
 		</table>
-		<nav style="width: 50%; margin: 0 auto;" aria-label="Page navigation example ">
+		<!-- <nav style="width: 50%; margin: 0 auto;" aria-label="Page navigation example ">
 			<ul class="pagination">
 				<li class="page-item"><a class="page-link" href="/students/list/page?p=0">First</a></li>
 				<li class="page-item" th:classappend="${LIST_STUDENT.number == 0} ? 'disabled'"><a class="page-link" th:href="@{/students/list/page(p=${LIST_STUDENT.number - 1})}">Previous</a></li>
 				<li class="page-item" th:classappend="${LIST_STUDENT.number == LIST_STUDENT.totalPages - 1} ? 'disabled'" ><a class="page-link" th:href="@{/students/list/page(p=${LIST_STUDENT.number + 1})}">Next</a></li>
 				<li class="page-item"><a class="page-link" th:href="@{/students/list/page(p=${LIST_STUDENT.totalPages - 1})}">Last</a></li>
 			</ul>
-		</nav>
+		</nav> -->
 	</div>
 </body>
 </html>

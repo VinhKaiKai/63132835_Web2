@@ -11,18 +11,27 @@ import jakarta.persistence.TemporalType;
 public class StudentDTO {
 
 	private String id;
+	
 	private String name;
+	
 	private boolean gender;
+	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
 	private Date birthday;
+	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
 	private Date ngaydangkyhoc;
+	
 	private MultipartFile photo;
+	
 	private String email;
+	
 	private String phone;
+	
 	private boolean hthocphi;
+	
 	private String courseId;
 	private String staffId;
 	public StudentDTO() {
